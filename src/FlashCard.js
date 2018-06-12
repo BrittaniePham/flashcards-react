@@ -1,9 +1,10 @@
 import React from 'react';
 
+const style = { cursor: 'pointer', color: 'blue' }
+
 const FlashCard = ({ id, question, answer, flipped, flashcardClick }) => (
-  <li onClick={ () => flashcardClick(id) }>
-    {question}
-    {answer}
+  <li style={style} onClick={() => flashcardClick(id)}>
+    { flipped ? answer : question }
   </li>
 )
 

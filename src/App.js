@@ -22,7 +22,7 @@ class App extends Component {
      });
   }
 
-  handleClick = (id) => {
+  flip = (id) => {
     const { flashcards } = this.state;
     this.setState({
       flashcards: flashcards.map( flashcard => {
@@ -32,7 +32,6 @@ class App extends Component {
             flipped: !flashcard.flipped
           }
         }
-
         return flashcard
       })
     })
@@ -44,7 +43,7 @@ class App extends Component {
     return (
       <div>
         <FlashCardForm addCard={this.addCard}/>
-        <FlashCards cards={flashcards} flashcardClick={this.handleClick} />
+        <FlashCards cards={flashcards} flashcardClick={this.flip} />
       </div>
     );
   }

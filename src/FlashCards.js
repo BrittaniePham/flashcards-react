@@ -1,7 +1,7 @@
 import React from 'react';
 import FlashCard from './FlashCard'
 
-const FlashCards = ({ cards, question, answer, flashcardClick }) => (
+const FlashCards = ({ cards, flashcardClick }) => (
   <div>
     <h2 className="App">React Flash Cards</h2>
     <ul>
