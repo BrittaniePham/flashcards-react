@@ -1,37 +1,36 @@
 import React from 'react';
 
 class FlashCardForm extends React.Component {
-  state = {
-    card: [
-      { question: '', answer: '' },
-    ]
-  }
+  state = { question: '', answer: '' }
 
   handleSubmit = (e) => {
+    const { question, answer } = this.state
     e.preventDefault();
-    this.props.addCard(this.state.card);
+    this.props.addCard(question, answer);
     this.setState({ question: '', answer: '' })
   }
+
+  // handleChange = ({ target: { name, value } }) => this.setState({ [name]: value })
   
   handleChange = (e) => {
-    this.setState({ question: e.target.value });
-    this.setState({ answer: e.target.value });
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { question, answer } = this.state.card;
+    const { question, answer } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <input 
           value={question}
-          question="question"
+          name="question"
           onChange={this.handleChange}
           required
           placeholder="Question" />
         <input 
           value={answer}
-          answer="answer"
+          name="answer"
           onChange={this.handleChange}
           required
           placeholder="Answer" />

@@ -9,14 +9,15 @@ class App extends Component {
       { id: 1, question: 'What sound does a cat make?', answer: 'meow', flipped: false},
       { id: 2, question: 'What sound does a dog make?', answer: 'woof', flipped: false},
       { id: 3, question: 'What sound does a cow make?', answer: 'moo', flipped: false},
-    ]
+    ],
+    id: 4
   }
 
   addCard = (question, answer) => {
     const { flashcards, id } = this.state;
     const flashcard = { question, answer, flipped: false, id }
     this.setState({ 
-      flashcards: [flashcard, ...flashcards],
+      flashcards: [...flashcards, flashcard],
       id: id + 1,
      });
   }
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     const { flashcards } = this.state
-    
+
     return (
       <div>
         <FlashCardForm addCard={this.addCard}/>
